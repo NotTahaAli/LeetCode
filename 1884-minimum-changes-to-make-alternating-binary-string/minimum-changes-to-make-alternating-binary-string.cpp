@@ -14,7 +14,7 @@ public:
             }
         }
         minChanges = min(changes, minChanges);
-        for (int i = 1; i < s.size(); i++) {
+        for (int i = 1; minChanges > 0 && i < s.size(); i++) {
             if (s[i] != s[i-1]) continue;
             changes = 0;
             lastChanged = true;
