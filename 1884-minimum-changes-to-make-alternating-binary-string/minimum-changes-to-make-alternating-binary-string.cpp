@@ -14,11 +14,11 @@ public:
             }
         }
         minChanges = min(changes, minChanges);
-        for (int i = 1; minChanges > 0 && i < s.size(); i++) {
+        for (int i = 1; i < s.size(); i++) {
             if (s[i] != s[i-1]) continue;
             changes = 0;
             lastChanged = true;
-            for (int j = i-1; j >= 0; j--) {
+            for (int j = i-1; changes < minChanges && j >= 0; j--) {
                 if ((!lastChanged && s[j] == s[j+1]) || (lastChanged && s[j] != s[j+1])) {
                     changes++;
                     lastChanged = true;
@@ -27,7 +27,7 @@ public:
                 }
             }
             lastChanged = false;
-            for (int j = i; j < s.size(); j++) {
+            for (int j = i; changes < minChanges && j < s.size(); j++) {
                 if ((!lastChanged && s[j] == s[j-1]) || (lastChanged && s[j] != s[j-1])) {
                     changes++;
                     lastChanged = true;
