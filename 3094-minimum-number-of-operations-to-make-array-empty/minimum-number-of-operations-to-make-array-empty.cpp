@@ -1,38 +1,24 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int count = 1;
+        unordered_map<int, int> counts;
         int changes = 0;
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i-1] == nums[i]) {
-                count++;
-            } else {
-                while (count >= 5) {
-                    changes++;
-                    count -= 3;
-                }
-                if (count % 3 != 1) {
-                    changes += count / 3;
-                    count %= 3;
-                }
-                changes += count / 2;
-                count %= 2;
-                if (count != 0) return -1;
-                count = 1;
+        for (int i = 0; i < nums.size(); i++) {
+            counts[nums[i]]++;
+        }
+        for (auto i: counts) {
+            while (i.second >= 5) {
+                changes++;
+                i.second -= 3;
             }
+            if (i.second%3 != 1) {
+                changes += i.second / 3;
+                i.second %= 3;
+            }
+            changes += i.second / 2;
+            i.second %= 2;
+            if (i.second != 0) return -1;
         }
-        while (count >= 5) {
-            changes++;
-            count -= 3;
-        }
-        if (count%3 != 1) {
-            changes += count / 3;
-            count %= 3;
-        }
-        changes += count / 2;
-        count %= 2;
-        if (count != 0) return -1;
         return changes;
     }
 };
