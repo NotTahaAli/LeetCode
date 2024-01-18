@@ -9,8 +9,7 @@ public:
         for(int i = 0; i <= maxCountOf2; i++) {
             numberof2 = i;
             numberof1 = n-i*2;
-            temp = tgamma(numberof2+numberof1+1) / (tgamma(numberof1+1) * tgamma(numberof2+1)) + 0.5;
-            possible += temp;
+            possible += tgamma(numberof2+numberof1+1) / (tgamma(numberof1+1) * tgamma(numberof2+1)) + 0.5;
         }
         return possible;
     }
