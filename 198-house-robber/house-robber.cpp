@@ -1,15 +1,18 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
+        if (nums.size() == 1) return nums[0];
         vector<int> maximum(nums.size());
-        maximum[0] = nums[0];
-        for (int i = 1; i < nums.size(); i++) {
-            maximum[i] = nums[i];
-            if (i >= 2) {
-                maximum[i] += max(maximum[i-2], maximum[max(i-3,0)]);
-            }
-            cout << maximum[i] << endl;
+        int prev2 = 0;
+        int prev1 = nums[0];
+        int prev = nums[1];
+        int temp;
+        for (int i = 2; i < nums.size(); i++) {
+            temp = max(prev1, prev2) + nums[i];
+            prev2 = prev1;
+            prev1 = prev;
+            prev = temp;
         }
-        return max(maximum[nums.size()-1], maximum[max((int) nums.size()-2,0)]);
+        return max(prev, prev1);
     }
 };
