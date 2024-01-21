@@ -2,7 +2,6 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         if (nums.size() == 1) return nums[0];
-        vector<int> maximum(nums.size());
         int prev2 = 0;
         int prev1 = nums[0];
         int prev = nums[1];
