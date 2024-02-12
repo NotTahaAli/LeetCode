@@ -34,39 +34,5 @@ public:
             }
         }
         return true;
-        // sort(count.begin(), count.end());
-        // int firstIndex = 0;
-        // int lastRemoved = 0;
-        // for (int i = 0; i < 26; i++) {
-        //     if (count[i] == 0) continue;
-        //     if (count[i-1] == 0) {
-        //         firstIndex = i;
-        //         continue;
-        //     }
-        //     // if (i-1 == firstIndex) continue;
-        //     if (count[i] > count[i-1] - ((i-1 == lastRemoved) ? 1 : 0)) {
-        //         cout << i << " "<< count[i] << " " << count[i-1] << " " << ((i-1 == lastRemoved) ? 1 : 0) << endl;
-        //         if (remove || count[i]-count[i-1] + ((i-1 == lastRemoved) ? 1 : 0) > 1) {
-        //             return false;
-        //         }
-        //         lastRemoved = i;
-        //         remove = true;
-        //         // count[i]--;
-        //     }
-        // }
-        // // if (!remove && firstIndex > 23) {
-        // //     for (int i = firstIndex+1; i < 26; i++) {
-        // //         if (count[i] > count[i-1]) {
-        // //             cout << i << " "<< count[i] << endl;
-        // //             if (remove || count[i]-count[i-1] > 1) {
-        // //                 return false;
-        // //             }
-        // //             remove = true;
-        // //             count[i]--;
-        // //         }
-        // //     }
-        // // }
-        // cout << remove << endl;
-        // return remove || (count[firstIndex] == 1);
     }
 };
