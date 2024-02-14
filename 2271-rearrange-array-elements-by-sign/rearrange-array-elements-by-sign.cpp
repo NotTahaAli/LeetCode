@@ -16,7 +16,6 @@ public:
                     break;
                 }
             }
-            cout << lastPos << " " << lastNeg << endl;
         }
         return out;
     }
