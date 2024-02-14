@@ -2,6 +2,7 @@ class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
         vector<int> out;
+        out.reserve(nums.size());
         int lastPos = -1;
         int lastNeg = -1;
         for (int pos = 0; pos < nums.size(); pos++) {
