@@ -8,12 +8,8 @@ public:
             bricksNeeded[i] = max(heights[i]-heights[i-1],0);
         }
         do {
-            for (auto b: bricksNeeded) {
-                cout << b << " ";
-            }
             int tempBricks = bricks;
             int tempLadders = ladders;
-            cout << endl;
             prevMaxDistance = maxDistance;
             int i = 1;
             for (; i < heights.size(); i++) {
