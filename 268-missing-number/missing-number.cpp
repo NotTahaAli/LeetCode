@@ -1,10 +1,15 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] != i) return i;
+        unordered_map<int, bool> exists;
+        int maxNum = 0;
+        for (auto n: nums) {
+            exists[n] = true;
+            maxNum = max(maxNum,n);
         }
-        return nums.size();
+        for (int i = 0; i <= maxNum; i++) {
+            if (!exists[i]) return i;
+        }
+        return maxNum+1;
     }
 };
