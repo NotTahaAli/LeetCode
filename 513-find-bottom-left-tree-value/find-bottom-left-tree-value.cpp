@@ -13,25 +13,16 @@ class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
         queue<TreeNode*> nodes;
-        queue<TreeNode*> nextLevel;
-        int LeftMost;
         nodes.push(root);
-        bool first = true;
         while (!nodes.empty()) {
             TreeNode* currNode = nodes.front();
-            if (first) {
-                LeftMost = currNode->val;
-                first = false;
-            }
             nodes.pop();
-            if (currNode->left) nextLevel.push(currNode->left);
-            if (currNode->right) nextLevel.push(currNode->right);
+            if (currNode->right) nodes.push(currNode->right);
+            if (currNode->left) nodes.push(currNode->left);
             if (nodes.empty()) {
-                nodes = nextLevel;
-                nextLevel = {};
-                first = true;
+                return currNode->val;
             }
         }
-        return LeftMost;
+        return -1;
     }
 };
