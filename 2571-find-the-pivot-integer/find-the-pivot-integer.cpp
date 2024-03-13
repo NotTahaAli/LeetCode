@@ -1,13 +1,9 @@
 class Solution {
 public:
     int pivotInteger(int n) {
-        int totalSum = (n*(n+1))/2;
-        int currentSum = 0;
-        for (int i = 1; i <= n; i++) {
-            currentSum += i;
-            if (currentSum*2 == totalSum+i)
-                return i;
-        }
+        int totalSumx2 = n*(n+1);
+        for (int i = 1; i <= n; i++)
+            if (2*i*i == totalSumx2) return i;
         return -1;
     }
 };
